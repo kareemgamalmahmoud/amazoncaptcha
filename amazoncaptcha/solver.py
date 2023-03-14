@@ -51,7 +51,8 @@ class AmazonCaptcha(object):
 
         """
 
-        self.img = Image.open(img, 'r')
+        # self.img = Image.open(img, 'r')
+        self.img = img
         self._image_link = image_link
         self.devmode = devmode
 
@@ -59,6 +60,7 @@ class AmazonCaptcha(object):
         self.result = dict()
 
         package_directory_path = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))
+        # package_directory_path = os.path.dirname(os.path.abspath(__file__)) if '__file__' in globals() else '.'
         self.training_data_folder = os.path.join(package_directory_path, 'training_data')
         self.alphabet = [filename.split('.')[0] for filename in os.listdir(self.training_data_folder)]
 
